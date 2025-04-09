@@ -23,7 +23,7 @@ It covers authentication, user profile management, product and brand management,
 
 ```
 git clone https://github.com/Abhijith-AK/supporta-test-backend.git
-cd machine-test-backend
+cd supporta-test-backend
 ```
 
 2. Install dependencies:
