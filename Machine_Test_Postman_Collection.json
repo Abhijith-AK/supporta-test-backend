@@ -1,0 +1,431 @@
+{
+    "info": {
+        "name": "Machine Test API Collection",
+        "description": "Full API collection for machine test - includes Auth, Profile, Brand, Product Management, Block/Unblock, Filtering & Sorting Products.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Register User",
+                    "request": {
+                        "method": "POST",
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "username",
+                                    "value": "testuser",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "testuser@example.com",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "password123",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "profilePhoto",
+                                    "type": "file",
+                                    "src": ""
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/users/register",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "users",
+                                "register"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Login User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{ \"email\": \"testuser@example.com\", \"password\": \"password123\" }"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/users/login",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "users",
+                                "login"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Refresh Token",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:5000/api/users/refresh-token",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "users",
+                                "refresh-token"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Profile",
+                    "request": {
+                        "method": "PUT",
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "username",
+                                    "value": "updateduser",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "updateduser@example.com",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "profilePhoto",
+                                    "type": "file",
+                                    "src": ""
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/users/profile",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "users",
+                                "profile"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Profile",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://localhost:5000/api/users/profile",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "users",
+                                "profile"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "User Management",
+            "item": [
+                {
+                    "name": "Block User",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:5000/api/users/block/<userId>",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "users",
+                                "block",
+                                "<userId>"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Unblock User",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:5000/api/users/unblock/<userId>",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "users",
+                                "unblock",
+                                "<userId>"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Brand Management",
+            "item": [
+                {
+                    "name": "Add Brand",
+                    "request": {
+                        "method": "POST",
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "brandName",
+                                    "value": "Apple",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "categories",
+                                    "value": "Phones",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "categories",
+                                    "value": "Laptops",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "brandLogo",
+                                    "type": "file",
+                                    "src": ""
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/brands",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "brands"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Brands",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:5000/api/brands",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "brands"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Product Management",
+            "item": [
+                {
+                    "name": "Add Product",
+                    "request": {
+                        "method": "POST",
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "productName",
+                                    "value": "iPhone 15 Pro",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "Latest iPhone model",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "price",
+                                    "value": "1500",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "Phones",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "brand",
+                                    "value": "<brandId>",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "productImage",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/products",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "products"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Edit Product",
+                    "request": {
+                        "method": "PUT",
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "productName",
+                                    "value": "Updated iPhone",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "price",
+                                    "value": "1600",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "productImage",
+                                    "type": "file",
+                                    "src": ""
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/products/<productId>",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "products",
+                                "<productId>"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Product",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://localhost:5000/api/products/<productId>",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "products",
+                                "<productId>"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Products (Filter, Sort, Block System)",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:5000/api/products?brand=<brandId>&category=Phones&sortBy=price&sortOrder=asc",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "products"
+                            ],
+                            "query": [
+                                {
+                                    "key": "brand",
+                                    "value": "<brandId>"
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "Phones"
+                                },
+                                {
+                                    "key": "sortBy",
+                                    "value": "price"
+                                },
+                                {
+                                    "key": "sortOrder",
+                                    "value": "asc"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get My Products",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:5000/api/products/my-products",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "products",
+                                "my-products"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
